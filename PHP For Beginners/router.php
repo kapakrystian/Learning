@@ -1,19 +1,11 @@
 <?php
 
 
+$routes = require('routes.php');
+
+
 //analiza url i zapis uri do zmiennej
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-
-//tablica z routami
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/contact' => 'controllers/contact.php',
-    '/notes' => 'controllers/notes.php',
-    '/note' => 'controllers/note.php',
-    '/ourMission' => 'controllers/ourMission.php'
-];
 
 
 /*------------------------------------------------
