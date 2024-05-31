@@ -1,0 +1,51 @@
+version: "3.8"
+name: laracast
+
+services:
+  web:
+    build:
+      context: ./nginx
+      dockerfile: nginx.dockerfile
+    ports:
+      - 8080:80
+      - 9003:9003
+    volumes:
+      - .:/usr/share/nginx/html
+    depends_on:
+      - db
+      - php
+  db:
+    image: mariadb:11.3
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: laracast
+      MYSQL_USER: laracast_admin
+      MYSQL_PASSWORD: laracast123!@#
+      MYSQL_ROOT_PASSWORD: laracast!@#
+    volumes:
+      - laracast_db:/var/lib/mysql
+  php:
+    build:
+      context: ./php
+      dockerfile: php.dockerfile
+    volumes:
+      - .:/usr/share/nginx/html
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  composer:
+    image: composer:2
+    volumes:
+      - .:/usr/share/nginx/html
+    working_dir: /usr/share/nginx/html
+    command: install
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: laracast123!@#
+
+volumes:
+  laracast_db:
