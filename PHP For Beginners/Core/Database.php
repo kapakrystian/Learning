@@ -1,12 +1,9 @@
 <?php
 
-
 class Database
 {
-
     public $connection;
     public $statement;
-
 
     public function __construct($config)
     {
@@ -21,7 +18,7 @@ class Database
     }
 
     /*--------------------------------------------------------------
-    Obsługa zapytania SQL i zwrócenie bieżącej instacji obiektu, co
+    Obsługa zapytania SQL i zwrócenie bieżącej instancji obiektu, co
     umożliwia dalsze operacje na wyniku zapytania.
     --------------------------------------------------------------*/
     public function query($query, $params = [])
@@ -32,18 +29,15 @@ class Database
         return $this;
     }
 
-
     public function get()
     {
         return $this->statement->fetchAll();
     }
 
-
     public function find()
     {
         return $this->statement->fetch();
     }
-
 
     public function findOrFail()
     {
