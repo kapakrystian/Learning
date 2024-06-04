@@ -1,14 +1,13 @@
 <?php
 
 
+use Core\App;
 use Core\Database;
 
+$db = App::container()->resolve(Database::class); //string z pełnym namespace'em klasy
 
-$config = require base_path('config.php');
-$db = new Database($config);
 
 $currentUserId = 2;
-
 
 $note = $db->query('select * from notes where id = :id', [
     'id' => $_POST['id']

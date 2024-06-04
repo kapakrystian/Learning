@@ -2,11 +2,10 @@
 
 
 use Core\Validator;
+use Core\App;
 use Core\Database;
 
-
-$config = require base_path('config.php');
-$db = new Database($config);
+$db = App::container()->resolve(Database::class); //string z pełnym namespace'em klasy
 
 $errors = [];
 
