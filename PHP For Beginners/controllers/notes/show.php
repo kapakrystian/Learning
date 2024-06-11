@@ -6,7 +6,7 @@ use Core\Database;
 
 $db = App::container()->resolve(Database::class); //string z pełnym namespace'em klasy
 
-$currentUserId = 2;
+$currentUserId = $_SESSION['user']['id'];
 
 $note = $db->query('select * from notes where id = :id', [
     'id' => $_GET['id']
