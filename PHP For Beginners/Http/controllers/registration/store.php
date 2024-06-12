@@ -48,6 +48,7 @@
 use Core\App;
 use Core\Database;
 use Core\Validator;
+use Core\Authenticator;
 
 $db = App::resolve(Database::class);
 
@@ -88,7 +89,7 @@ if ($user) {
     ])->find();
 
     if ($user) {
-        login($user);
+        Authenticator::login($user);
         header('location: /');
         exit();
     } else {
