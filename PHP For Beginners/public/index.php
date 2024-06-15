@@ -26,5 +26,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']; //ISSET X -> $method 
 
 $router->route($uri, $method);
 
-
 Session::unflash();
