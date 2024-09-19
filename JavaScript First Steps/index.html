@@ -4,9 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS First Steps</title>
+    <style>
+      ul {
+        background: lightblue;
+      }
+    </style>
   </head>
 
+  <input type="text" id="toDo" />
+
   <body>
+    <ul class="todo-list">
+      <li>Go Shopping</li>
+      <li>Finish JS Course</li>
+      <li>Do something</li>
+    </ul>
+
+    <ul class="todo-list">
+      <li>Go Swimming</li>
+      <li>Running</li>
+      <li>Do something</li>
+    </ul>
+
+    <div class="sidebar">
+      <ul class="todo-list">
+        <li>Home</li>
+        <li>Contact</li>
+        <li>About Us</li>
+      </ul>
+    </div>
+
     <p>DOM</p>
     <p>Document Object Model</p>
 
@@ -16,7 +43,7 @@
     </div>
 
     <div class="mt">
-      <form action="#">
+      <form action="#" id="address">
         <input type="text" name="address" id="address" placeholder="Address" />
       </form>
     </div>
@@ -28,6 +55,36 @@
 
     <button>Click me</button>
 
+    <script>
+      // const uls = document.querySelectorAll("ul");
+      // // uls.forEach((element) => {
+      // //   element.style = "color: gray";
+      // // });
+
+      // //Utworzenie tablicy z wcześniej wybranych elementów.
+      // const ulsArray = Array.from(uls);
+      // console.log(ulsArray);
+
+      // const input = document.querySelector("#toDo");
+      // console.log(input);
+
+      // const todo_list = document.querySelectorAll(".sidebar .todo-list");
+      // console.log(todo_list);
+
+      // const li_child = document.querySelectorAll(".todo-list li:first-child");
+      // console.log(li_child);
+
+      // const sidebar = document.querySelector(".sidebar");
+      // console.log(sidebar);
+      // const scoped = sidebar.querySelector(".todo-list");
+      // console.log(scoped);
+
+      // const byClassName = document.getElementsByClassName("mt");
+      // console.log(byClassName);
+
+      const byId = document.getElementById("google");
+      console.log(byId);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
   </body>
 </html>
